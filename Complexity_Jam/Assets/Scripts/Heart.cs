@@ -7,17 +7,20 @@ public class Heart : InternalOrgan
     float heartBloodProd = 10;
     float heartOxygenUsage = 5;
     float heartFuelUsage = 5;
-    public override void Activate()
+    private void Awake()
     {
-        IsActive = true;
+        BloodEnabler = true;
         BloodProd = heartBloodProd;
         OxygenUsage = heartOxygenUsage;
         FuelUsage = heartFuelUsage;
+    }
+    public override void Activate()
+    {
+        IsActive = true;
     }
 
     public override void Deactivate()
     {
         IsActive = false;
-        BloodProd = OxygenUsage = FuelUsage = 0;
     }
 }

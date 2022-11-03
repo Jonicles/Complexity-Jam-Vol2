@@ -4,6 +4,13 @@ using UnityEngine;
 
 public class Lung : InternalOrgan
 {
+    private void Awake()
+    {
+        //OxygenEnabler = true;
+        //BloodProd = heartBloodProd;
+        //OxygenUsage = heartOxygenUsage;
+        //FuelUsage = heartFuelUsage;
+    }
     public override void Activate()
     {
         IsActive = true;

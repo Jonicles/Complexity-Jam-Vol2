@@ -59,6 +59,8 @@ public class Creature : MonoBehaviour
             }
         }
 
+        print($"Brain: {brainAmount} Heart: {heartAmount} Lung: {lungAmount} Mouth: {mouthAmount}");
+
         if(brainAmount > 0 && heartAmount > 0 && lungAmount > 0 && mouthAmount > 0)
         {
             foreach(Organ organ in currentOrgansList)
