@@ -7,11 +7,11 @@ public class DragNDrop : MonoBehaviour
 {
     bool clicked;
     LayerMask tileLayerMask;
-    Organ myOrgan;
+    [SerializeField] Organ myOrgan;
 
     private void Start()
     {
-        
+
         tileLayerMask = LayerMask.GetMask("Tile");
     }
     private void FixedUpdate()
@@ -25,7 +25,12 @@ public class DragNDrop : MonoBehaviour
     private void OnMouseDown()
     {
         clicked = true;
-        GameManager.Instance.DisplayTiles();
+        if (myOrgan.IsPlaced)
+        {
+            myOrgan.Remove();
+            GameManager.Instance.RemoveOrgan(myOrgan);
+        }
+        GameManager.Instance.TileDisplay();
     }
 
     private void OnMouseUp()
@@ -34,7 +39,7 @@ public class DragNDrop : MonoBehaviour
         //Sets dragged objects position to the tiles position
         SnapToTile();
 
-        GameManager.Instance.DisplayTiles(false);
+        GameManager.Instance.TileDisplay(false);
     }
 
     private void SnapToTile()
@@ -43,7 +48,8 @@ public class DragNDrop : MonoBehaviour
         if (collider != null)
         {
             transform.position = collider.transform.position;
-            //collider.GetComponentInParent<Creature>().AddOrgan();
+            GameManager.Instance.PlaceOrgan(myOrgan);
+            myOrgan.Place();
         }
     }
 }

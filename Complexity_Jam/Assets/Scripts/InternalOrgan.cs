@@ -4,14 +4,16 @@ using UnityEngine;
 
 public class InternalOrgan : Organ
 {
-    public override void PlaceDisplay()
+    public override void Place()
     {
         //This is called when the organ is placed on a tile
+        IsPlaced = true;
     }
 
-    public override void DragDisplay()
+    public override void Remove()
     {
         //This is called when the organ is dragged by the player
+        IsPlaced = false;
     }
 
     public override void Activate() { }

@@ -8,6 +8,7 @@ public abstract class Organ : MonoBehaviour
     public bool IsPlaced { get; protected set; } = false;
 
     public bool OxygenEnabler { get; protected set; } = false;
+    public bool LungEnabler { get; protected set; } = false;
     public bool BloodEnabler { get; protected set; } = false;
     public bool FuelEnabler { get; protected set; } = false;
     public bool WasteEnabler { get; protected set; } = false;
@@ -27,7 +28,7 @@ public abstract class Organ : MonoBehaviour
 
     public abstract void Deactivate();
 
-    public abstract void PlaceDisplay();
+    public abstract void Place();
 
-    public abstract void DragDisplay();
+    public abstract void Remove();
 }

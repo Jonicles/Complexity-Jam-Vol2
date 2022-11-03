@@ -242,9 +242,11 @@ MonoBehaviour:
   - {fileID: 1712375766}
   - {fileID: 1354124798}
   - {fileID: 813036599}
-  organList:
-  - {fileID: 1812602732}
-  - {fileID: 440670226}
+  - {fileID: 371962343}
+  - {fileID: 1062057237}
+  - {fileID: 1483839057}
+  - {fileID: 1164017456}
+  currentCreature: {fileID: 0}
 --- !u!4 &186090783
 Transform:
   m_ObjectHideFlags: 0
@@ -531,6 +533,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d60932ca1a068854794497240b0867f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  myOrgan: {fileID: 440670226}
 --- !u!4 &440670229
 Transform:
   m_ObjectHideFlags: 0
@@ -653,6 +656,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc589ff62163eaa48ad456df7ba6f926, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  tileList:
+  - {fileID: 1892509026}
+  - {fileID: 246320535}
+  - {fileID: 1712375766}
+  - {fileID: 1354124798}
+  - {fileID: 813036599}
+  - {fileID: 371962343}
+  - {fileID: 1062057237}
+  - {fileID: 1483839057}
+  - {fileID: 1164017456}
+  currentOrgansList: []
 --- !u!1 &760357684
 GameObject:
   m_ObjectHideFlags: 0
@@ -1728,6 +1742,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d60932ca1a068854794497240b0867f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  myOrgan: {fileID: 1812602732}
 --- !u!4 &1812602730
 Transform:
   m_ObjectHideFlags: 0
@@ -1779,7 +1794,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1812602728}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9f123989c00d2fa42b050d9e7832aeb0, type: 3}
+  m_Script: {fileID: 11500000, guid: 3c61acb6ac522f94bb74a98ba9e04e08, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1821762630
