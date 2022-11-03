@@ -7,9 +7,11 @@ public class DragNDrop : MonoBehaviour
 {
     bool clicked;
     LayerMask tileLayerMask;
+    Organ myOrgan;
 
     private void Start()
     {
+        
         tileLayerMask = LayerMask.GetMask("Tile");
     }
     private void FixedUpdate()
@@ -41,6 +43,7 @@ public class DragNDrop : MonoBehaviour
         if (collider != null)
         {
             transform.position = collider.transform.position;
+            //collider.GetComponentInParent<Creature>().AddOrgan();
         }
     }
 }

@@ -12,6 +12,8 @@ public abstract class Organ : MonoBehaviour
     public bool FuelEnabler { get; protected set; } = false;
     public bool WasteEnabler { get; protected set; } = false;
     public bool ReproductionEnabler { get; protected set; } = false;
+    public bool OrganEnabler { get; protected set; } = false;
+
 
     public float BloodProd { get; protected set; } = 0;
     public float BloodUsage { get; protected set; } = 0;
