@@ -88,6 +88,13 @@ public class DragNDrop : MonoBehaviour
                 currentTile.SetOccupiedStatus(false);
                 currentTile = null;
             }
+
+            Destroy(gameObject);
         }
+    }
+
+    public void SetCurrentTile(Tile newTile)
+    {
+        currentTile = newTile;
     }
 }

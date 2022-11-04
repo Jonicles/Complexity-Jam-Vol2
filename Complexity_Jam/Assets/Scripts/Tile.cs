@@ -4,18 +4,16 @@ using UnityEngine;
 
 public class Tile : MonoBehaviour
 {
-    public bool Occupied { get; private set; }
-    public void SetOccupiedStatus(bool status)
+    public bool Occupied { get; protected set; }
+    public virtual void SetOccupiedStatus(bool status)
     {
         if (!status)
         {
             Occupied = false;
-            print("Not Occupied");
         }
         else
         {
             Occupied = true;
-            print("Its occupied");
         }
         
     }
