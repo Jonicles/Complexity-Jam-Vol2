@@ -4,17 +4,29 @@ using UnityEngine;
 
 public class Brain : InternalOrgan
 {
+    float brainBloodUsage = 2;
+    float brainFuelUsage = 1;
+    public override void Place()
+    {
+        OrganEnabler = true;
+        BloodUsage = brainBloodUsage;
+        FuelUsage = brainFuelUsage;
+        base.Place();
+    }
+
+    public override void Remove()
+    {
+        OrganEnabler = false;
+        BloodUsage = FuelUsage = 0;
+        base.Remove();
+    }
     public override void Activate()
     {
         IsActive = true;
-        OrganEnabler = true;
-        OxygenUsage = 5;
-        BloodUsage = 2;
-        FuelUsage = 2;
+        
     }
     public override void Deactivate()
     {
-        IsActive = OrganEnabler = false;
-        OxygenUsage = FuelUsage = 0;
+        IsActive = false;
     }
 }

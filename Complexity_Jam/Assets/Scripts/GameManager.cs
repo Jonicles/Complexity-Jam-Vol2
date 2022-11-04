@@ -40,8 +40,8 @@ public class GameManager : MonoBehaviour
         currentCreature.RemoveOrgan(organToRemove);
     }
 
-    public void TileDisplay(bool show = true)
+    public void DisplayTiles(bool show = true)
     {
-        currentCreature.TileDisplay(show);
+        currentCreature.DisplayTiles(show);
     }
 }

@@ -4,17 +4,29 @@ using UnityEngine;
 
 public class Mouth : ExternalOrgan
 {
+    float mouthBloodUsage = 2;
+    float mouthFuelUsage = 1;
+    public override void Place()
+    {
+        LungEnabler = true;
+        FuelEnabler = true;
+        BloodUsage = mouthBloodUsage;
+        FuelUsage = mouthFuelUsage;
+        base.Place();
+    }
+
+    public override void Remove()
+    {
+        LungEnabler = FuelEnabler = false;
+        BloodUsage = FuelUsage = 0;
+        base.Remove();
+    }
     public override void Activate()
     {
         IsActive = true;
-        LungEnabler = true;
-        FuelEnabler = true;
-        BloodUsage = 2;
-        FuelUsage = 1;
     }
     public override void Deactivate()
     {
-        IsActive = LungEnabler = FuelEnabler = false;
-        BloodUsage = FuelUsage = 0;
+        IsActive = false;
     }
 }

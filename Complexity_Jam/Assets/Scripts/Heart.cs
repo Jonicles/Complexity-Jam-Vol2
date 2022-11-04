@@ -5,14 +5,23 @@ using UnityEngine;
 public class Heart : InternalOrgan
 {
     float heartBloodProd = 10;
-    float heartOxygenUsage = 5;
-    float heartFuelUsage = 5;
-    private void Awake()
+    float heartOxygenUsage = 2;
+    float heartFuelUsage = 1;
+
+    public override void Place()
     {
         BloodEnabler = true;
         BloodProd = heartBloodProd;
         OxygenUsage = heartOxygenUsage;
         FuelUsage = heartFuelUsage;
+        base.Place();
+    }
+
+    public override void Remove()
+    {
+        BloodEnabler = false;
+        BloodProd = OxygenUsage = FuelSpace = 0;
+        base.Remove();
     }
     public override void Activate()
     {

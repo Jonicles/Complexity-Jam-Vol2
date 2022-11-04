@@ -4,27 +4,27 @@ using UnityEngine;
 
 public class Creature : MonoBehaviour
 {
-    [SerializeField] List<GameObject> tileList = new List<GameObject>();
+    [SerializeField] List<Tile> tileList = new List<Tile>();
     [SerializeField] List<Organ> currentOrgansList = new List<Organ>();
 
     List<Organ> functioningOrgansList = new List<Organ>();
     int requiredBrainPieces;
     void Start()
     {
-        
+
     }
 
-    public void TileDisplay(bool show = true)
+    public void DisplayTiles(bool show = true)
     {
-        foreach (GameObject tile in tileList)
+        foreach (Tile tile in tileList)
         {
-            tile.SetActive(show);
+            tile.Show(show);
         }
     }
     public void AddOrgan(Organ organToAdd)
     {
         currentOrgansList.Add(organToAdd);
-        UpdateOrganStatus();;
+        UpdateOrganStatus(); ;
     }
 
     public void RemoveOrgan(Organ organToRemove)
@@ -58,15 +58,29 @@ public class Creature : MonoBehaviour
                 lungAmount++;
             }
         }
+        float totalBloodUsage = 0;
+        float totalOxygenUsage = 0;
+        float totalFuelUsage = 0;
 
-        print($"Brain: {brainAmount} Heart: {heartAmount} Lung: {lungAmount} Mouth: {mouthAmount}");
+        float totalBloodProd = 0;
+        float totalOxygenProd = 0;
+        float totalFuelSpace = 0;
 
-        if(brainAmount > 0 && heartAmount > 0 && lungAmount > 0 && mouthAmount > 0)
+        if (brainAmount > 0 && heartAmount > 0 && lungAmount > 0 && mouthAmount > 0)
         {
-            foreach(Organ organ in currentOrgansList)
+            foreach (Organ organ in currentOrgansList)
             {
                 organ.Activate();
-                print("Organs are now active");
+                if (organ.IsActive)
+                {
+                    totalBloodUsage += organ.BloodUsage;
+                    totalOxygenUsage += organ.OxygenUsage;
+                    totalFuelUsage += organ.FuelUsage;
+
+                    totalBloodProd += organ.BloodProd;
+                    totalOxygenProd += organ.OxygenProd;
+                    totalFuelSpace += organ.FuelSpace;
+                }
             }
         }
         else
@@ -74,9 +88,10 @@ public class Creature : MonoBehaviour
             foreach (Organ organ in currentOrgansList)
             {
                 organ.Deactivate();
-                print("Organs are now non active");
             }
         }
+
+        print($"Blood: {totalBloodProd - totalBloodUsage}, Oxygen: {totalOxygenProd - totalOxygenUsage}, Fuel: {totalFuelSpace - totalFuelUsage}");
     }
 
     void UpdateStatBars()

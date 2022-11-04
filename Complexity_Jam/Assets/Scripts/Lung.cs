@@ -4,23 +4,30 @@ using UnityEngine;
 
 public class Lung : InternalOrgan
 {
-    private void Awake()
+    float lungOxygenProd = 3;
+    float lungBloodUsage = 2;
+    float lungFuelUsage = 1;
+    public override void Place()
     {
-        //OxygenEnabler = true;
-        //BloodProd = heartBloodProd;
-        //OxygenUsage = heartOxygenUsage;
-        //FuelUsage = heartFuelUsage;
+        OxygenEnabler = true;
+        OxygenProd = lungOxygenProd;
+        BloodUsage = lungBloodUsage;
+        FuelUsage = lungFuelUsage;
+        base.Place();
+    }
+
+    public override void Remove()
+    {
+        OxygenEnabler = false;
+        BloodUsage = FuelUsage = OxygenProd = 0;
+        base.Remove();
     }
     public override void Activate()
     {
         IsActive = true;
-        OxygenEnabler = true;
-        BloodUsage = 2;
-        FuelUsage = 2;
     }
     public override void Deactivate()
     {
-        IsActive = OxygenEnabler = false;
-        BloodUsage = FuelUsage = 0;
+        IsActive = false;
     }
 }
