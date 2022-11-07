@@ -130,4 +130,14 @@ public class Creature : MonoBehaviour
         GameManager.Instance.UpdateStatBars(totalBloodProd - totalBloodUsage, totalOxygenProd - totalOxygenUsage, totalFuelSpace - totalFuelUsage, brainAmount);
         //print($"Blood: {totalBloodProd - totalBloodUsage}, Oxygen: {totalOxygenProd - totalOxygenUsage}, Fuel: {totalFuelSpace - totalFuelUsage}");
     }
+
+    public List<Organ> CurrentOrgans()
+    {
+        return currentOrgansList;
+    }
+
+    public void ResetCreatrue()
+    {
+        
+    }
 }

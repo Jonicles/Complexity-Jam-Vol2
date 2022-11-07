@@ -7,13 +7,11 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance;
     [SerializeField] List<GameObject> tileList = new List<GameObject>();
     [SerializeField] Creature currentCreature;
-    [SerializeField] GameObject heartBarObject;
-    [SerializeField] GameObject brainBarObject;
-    [SerializeField] GameObject lungBarObject;
+    [SerializeField] StatBar heartBar;
+    [SerializeField] StatBar brainBar;
+    [SerializeField] StatBar lungBar;
+ 
 
-    StatBar heartBar;
-    StatBar brainBar;
-    StatBar lungBar;
     private void Awake()
     {
         if (Instance == null)
@@ -25,9 +23,7 @@ public class GameManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
-
     }
-
 
     public void PlaceOrgan(Organ organToAdd)
     {
@@ -49,5 +45,10 @@ public class GameManager : MonoBehaviour
     public void DisplayTiles(bool show = true)
     {
         currentCreature.DisplayTiles(show);
+    }
+
+    public void WinLoseCheck()
+    {
+        List<Organ> currentOrgans = currentCreature.CurrentOrgans();
     }
 }

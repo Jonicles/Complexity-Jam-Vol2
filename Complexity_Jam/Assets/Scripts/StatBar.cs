@@ -1,29 +1,30 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.U
+using UnityEngine.UI;
+using TMPro;
 
 public class StatBar : MonoBehaviour
 {
-    [SerializeField] GameObject statBar; 
-    public Slider mySlider;
-
-    private void Awake()
-    {
-        mySlider = statBar.GetComponent<Slider>();
-    }
+    [SerializeField] Slider mySlider;
+    [SerializeField] TextMeshProUGUI myText;
     public void UpdateValue(float value)
     {
         float tempValue = value;
-        if(value > mySlider.highValue)
+        if (value > mySlider.maxValue)
         {
-            tempValue = mySlider.highValue;
+            tempValue = mySlider.maxValue;
+            myText.text = $"+{value}";
         }
-
-        if(value < mySlider.lowValue)
+        else if (value < mySlider.minValue)
         {
-            tempValue = mySlider.lowValue;
+            tempValue = mySlider.minValue;
+            myText.text = $"{value}";
         }
+        else if(value == 0)
+            myText.text = $"{value}";
+        else
+            myText.text = $"+{value}";
 
         DisplayValue(tempValue);
     }
