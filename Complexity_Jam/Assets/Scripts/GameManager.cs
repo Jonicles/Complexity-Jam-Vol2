@@ -7,6 +7,13 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance;
     [SerializeField] List<GameObject> tileList = new List<GameObject>();
     [SerializeField] Creature currentCreature;
+    [SerializeField] GameObject heartBarObject;
+    [SerializeField] GameObject brainBarObject;
+    [SerializeField] GameObject lungBarObject;
+
+    StatBar heartBar;
+    StatBar brainBar;
+    StatBar lungBar;
     private void Awake()
     {
         if (Instance == null)
@@ -19,16 +26,8 @@ public class GameManager : MonoBehaviour
             Destroy(gameObject);
         }
 
-        //foreach (Organ organ in organList)
-        //{
-        //    print($"{organ.BloodProd}, {organ.OxygenUsage}, {organ.FuelUsage}");
-        //}
     }
 
-    private void Update()
-    {
-
-    }
 
     public void PlaceOrgan(Organ organToAdd)
     {
@@ -38,6 +37,13 @@ public class GameManager : MonoBehaviour
     public void RemoveOrgan(Organ organToRemove)
     {
         currentCreature.RemoveOrgan(organToRemove);
+    }
+
+    public void UpdateStatBars(float blood, float oxygen, float fuel, float brainAmount)
+    {
+        heartBar.UpdateValue(blood);
+        lungBar.UpdateValue(oxygen);
+        brainBar.UpdateValue(brainAmount);
     }
 
     public void DisplayTiles(bool show = true)

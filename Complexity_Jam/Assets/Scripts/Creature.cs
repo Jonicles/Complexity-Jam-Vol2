@@ -126,11 +126,8 @@ public class Creature : MonoBehaviour
                 print(organ.name + " is not active");
         }
 
-        print($"Blood: {totalBloodProd - totalBloodUsage}, Oxygen: {totalOxygenProd - totalOxygenUsage}, Fuel: {totalFuelSpace - totalFuelUsage}");
-    }
-
-    void UpdateStatBars()
-    {
-
+        //Updates statbars
+        GameManager.Instance.UpdateStatBars(totalBloodProd - totalBloodUsage, totalOxygenProd - totalOxygenUsage, totalFuelSpace - totalFuelUsage, brainAmount);
+        //print($"Blood: {totalBloodProd - totalBloodUsage}, Oxygen: {totalOxygenProd - totalOxygenUsage}, Fuel: {totalFuelSpace - totalFuelUsage}");
     }
 }
