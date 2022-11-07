@@ -23,10 +23,11 @@ public class Brain : InternalOrgan
     public override void Activate()
     {
         IsActive = true;
-        
+        base.Activate();
     }
     public override void Deactivate()
     {
         IsActive = false;
+        base.Deactivate();
     }
 }

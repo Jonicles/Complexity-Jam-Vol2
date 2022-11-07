@@ -10,6 +10,7 @@ public class DragNDrop : MonoBehaviour
     Vector3 startPos;
     [SerializeField] Organ myOrgan;
     [SerializeField] Tile currentTile;
+    [SerializeField] Container myContainer;
 
     private void Start()
     {
@@ -65,6 +66,8 @@ public class DragNDrop : MonoBehaviour
                 transform.position = collider.transform.position;
                 myOrgan.Place();
                 GameManager.Instance.PlaceOrgan(myOrgan);
+                myContainer.OrganSetup();
+
             }
             else
             {
@@ -77,6 +80,7 @@ public class DragNDrop : MonoBehaviour
                 }
                 transform.position = startPos;
             }
+
         }
         else
         {
@@ -86,15 +90,16 @@ public class DragNDrop : MonoBehaviour
             if (currentTile != null)
             {
                 currentTile.SetOccupiedStatus(false);
-                currentTile = null;
+                Destroy(gameObject);
             }
+            else
+                transform.position = startPos;
 
-            Destroy(gameObject);
         }
     }
 
-    public void SetCurrentTile(Tile newTile)
+    public void SetContainer(Container newContainer)
     {
-        currentTile = newTile;
+        myContainer = newContainer;
     }
 }

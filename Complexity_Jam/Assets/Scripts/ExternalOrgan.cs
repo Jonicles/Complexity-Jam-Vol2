@@ -16,6 +16,12 @@ public class ExternalOrgan : Organ
         IsPlaced = false;
     }
 
-    public override void Activate() { }
-    public override void Deactivate() { }
+    public override void Activate()
+    {
+
+    }
+    public override void Deactivate()
+    {
+
+    }
 }

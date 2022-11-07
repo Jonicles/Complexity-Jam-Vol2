@@ -5,6 +5,7 @@ using UnityEngine;
 public class Tile : MonoBehaviour
 {
     public bool Occupied { get; protected set; }
+    bool test;
     public virtual void SetOccupiedStatus(bool status)
     {
         if (!status)

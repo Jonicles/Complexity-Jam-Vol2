@@ -8,7 +8,9 @@ public class Creature : MonoBehaviour
     [SerializeField] List<Organ> currentOrgansList = new List<Organ>();
 
     List<Organ> functioningOrgansList = new List<Organ>();
-    int requiredBrainPieces;
+
+    [SerializeField] float brainPowerAmount = 3;
+    [SerializeField] float mouthPowerAmount = 2;
     void Start()
     {
 
@@ -66,11 +68,34 @@ public class Creature : MonoBehaviour
         float totalOxygenProd = 0;
         float totalFuelSpace = 0;
 
+        float lungsToActivate = mouthAmount * mouthPowerAmount;
+        float organsToActivate = brainAmount * brainPowerAmount;
+
         if (brainAmount > 0 && heartAmount > 0 && lungAmount > 0 && mouthAmount > 0)
         {
             foreach (Organ organ in currentOrgansList)
             {
-                organ.Activate();
+                //Activates the amount of organs equivalent to brainpower
+                if (!organ.OrganEnabler)
+                    organsToActivate--;
+                else
+                    organ.Activate();
+
+                if (organsToActivate >= 0)
+                {
+                    //Activates lungs
+                    if (organ.OxygenEnabler)
+                    {
+                        lungsToActivate--;
+
+                        if (lungsToActivate >= 0)
+                            organ.Activate();
+                    }
+                    else
+                        organ.Activate();
+
+                }
+
                 if (organ.IsActive)
                 {
                     totalBloodUsage += organ.BloodUsage;
@@ -89,6 +114,16 @@ public class Creature : MonoBehaviour
             {
                 organ.Deactivate();
             }
+        }
+
+        foreach (Organ organ in currentOrgansList)
+        {
+            if (organ.IsActive)
+            {
+                print(organ.name + " is active");
+            }
+            else
+                print(organ.name + " is not active");
         }
 
         print($"Blood: {totalBloodProd - totalBloodUsage}, Oxygen: {totalOxygenProd - totalOxygenUsage}, Fuel: {totalFuelSpace - totalFuelUsage}");
