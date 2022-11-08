@@ -22,12 +22,14 @@ public class Creature : MonoBehaviour
     }
     public void AddOrgan(Organ organToAdd)
     {
+        organToAdd.transform.SetParent(gameObject.transform);
         currentOrgansList.Add(organToAdd);
         UpdateOrganStatus(); ;
     }
 
     public void RemoveOrgan(Organ organToRemove)
     {
+        organToRemove.transform.parent = null;
         currentOrgansList.Remove(organToRemove);
         UpdateOrganStatus();
     }
