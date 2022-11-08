@@ -8,9 +8,11 @@ public class StatBar : MonoBehaviour
 {
     [SerializeField] Slider mySlider;
     [SerializeField] TextMeshProUGUI myText;
+    public float CurrentValue { get; private set; }
     public void UpdateValue(float value)
     {
         float tempValue = value;
+        CurrentValue = value;
         if (value > mySlider.maxValue)
         {
             tempValue = mySlider.maxValue;

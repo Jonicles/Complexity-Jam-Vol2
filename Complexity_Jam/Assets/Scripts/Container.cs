@@ -7,6 +7,17 @@ public class Container : MonoBehaviour
 {
     [SerializeField] GameObject organPrefab;
     [SerializeField] GameObject containedOrgan;
+    [SerializeField] RectTransform transformUI;
+    private void Update()
+    {
+        if (transformUI.hasChanged)
+        {
+            Vector3 newPos = Camera.main.ScreenToWorldPoint(transformUI.position);
+            transform.position = new Vector3(newPos.x, newPos.y, 0f);
+            containedOrgan.transform.position = transform.position;
+            transformUI.hasChanged = false;
+        }
+    }
     private void Start()
     {
         OrganSetup();

@@ -49,6 +49,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   myOrgan: {fileID: 7828497391963871366}
   currentTile: {fileID: 0}
+  myContainer: {fileID: 0}
 --- !u!61 &7828497391963871365
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -87,6 +88,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec858106420058c41846fe68760c4993, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  myRenderer: {fileID: 7828497392198939852}
+  startMaterial: {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  blurredMaterial: {fileID: 2100000, guid: 7748619a3a099cd4fa464bc557348ff0, type: 3}
+  hiddenColor: {r: 0.23529413, g: 0.9960785, b: 0.9490197, a: 0.19607843}
+  startColor: {r: 0.23529413, g: 0.9960785, b: 0.9490197, a: 1}
 --- !u!1 &7828497392198939854
 GameObject:
   m_ObjectHideFlags: 0

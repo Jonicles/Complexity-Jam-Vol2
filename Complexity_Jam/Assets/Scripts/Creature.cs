@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -11,10 +12,6 @@ public class Creature : MonoBehaviour
 
     [SerializeField] float brainPowerAmount = 3;
     [SerializeField] float mouthPowerAmount = 2;
-    void Start()
-    {
-
-    }
 
     public void DisplayTiles(bool show = true)
     {
@@ -36,6 +33,7 @@ public class Creature : MonoBehaviour
     }
     void UpdateOrganStatus()
     {
+        DeactivateOrgans();
         int brainAmount = 0;
         int heartAmount = 0;
         int lungAmount = 0;
@@ -47,15 +45,15 @@ public class Creature : MonoBehaviour
             {
                 brainAmount++;
             }
-            else if (organ.BloodEnabler)
+            if (organ.BloodEnabler)
             {
                 heartAmount++;
             }
-            else if (organ.LungEnabler)
+            if (organ.LungEnabler)
             {
                 mouthAmount++;
             }
-            else if (organ.OxygenEnabler)
+            if (organ.OxygenEnabler)
             {
                 lungAmount++;
             }
@@ -90,9 +88,12 @@ public class Creature : MonoBehaviour
 
                         if (lungsToActivate >= 0)
                             organ.Activate();
+
                     }
                     else
+                    {
                         organ.Activate();
+                    }
 
                 }
 
@@ -120,15 +121,23 @@ public class Creature : MonoBehaviour
         {
             if (organ.IsActive)
             {
-                print(organ.name + " is active");
+                //print(organ.name + " is active");
             }
-            else
-                print(organ.name + " is not active");
+            //else
+            //print(organ.name + " is not active");
         }
 
         //Updates statbars
         GameManager.Instance.UpdateStatBars(totalBloodProd - totalBloodUsage, totalOxygenProd - totalOxygenUsage, totalFuelSpace - totalFuelUsage, brainAmount);
         //print($"Blood: {totalBloodProd - totalBloodUsage}, Oxygen: {totalOxygenProd - totalOxygenUsage}, Fuel: {totalFuelSpace - totalFuelUsage}");
+    }
+
+    private void DeactivateOrgans()
+    {
+        foreach (Organ organ in currentOrgansList)
+        {
+            organ.Deactivate();
+        }
     }
 
     public List<Organ> CurrentOrgans()
@@ -138,6 +147,6 @@ public class Creature : MonoBehaviour
 
     public void ResetCreatrue()
     {
-        
+
     }
 }
