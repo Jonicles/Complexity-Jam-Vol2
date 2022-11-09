@@ -12,7 +12,12 @@ public class Creature : MonoBehaviour
 
     [SerializeField] float brainPowerAmount = 3;
     [SerializeField] float mouthPowerAmount = 2;
+    [SerializeField] public float BloodRequirement;
 
+    private void Awake()
+    {
+        DisplayTiles(false);
+    }
     public void DisplayTiles(bool show = true)
     {
         foreach (Tile tile in tileList)

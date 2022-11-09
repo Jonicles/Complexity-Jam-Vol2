@@ -24,6 +24,9 @@ public class TextBox : MonoBehaviour
     [SerializeField] GameObject textBoxUI;
     [SerializeField] TextMeshProUGUI textBoxText;
     public static TextBox Instance;
+
+    int currentLoopIndex = 0;
+    public bool Looping { get; private set; }
     [System.Serializable]
     public class Line
     {
@@ -113,33 +116,55 @@ public class TextBox : MonoBehaviour
         lineDictionary[line].Remove(lineDictionary[line][lineIndex]);
     }
 
-    void TextBoxAppear(LineType lineType, string line)
+    public bool TextBoxAppear(LineType lineType, string line)
     {
+        bool finished = false;
         textBoxUI.SetActive(true);
         switch (lineType)
         {
             case LineType.Level1:
                 ContiniousLines(IntroductionLinesList);
+                if (currentLoopIndex == IntroductionLinesList.Count)
+                {
+                    finished = true;
+                    currentLoopIndex = 0;
+                    Looping = false;
+                }
                 break;
             case LineType.Level2:
+                ContiniousLines(Level2LineList);
+                if (currentLoopIndex == Level2LineList.Count)
+                {
+                    finished = true;
+                    currentLoopIndex = 0;
+                    Looping = false;
+                }
                 break;
             case LineType.Level3:
+                ContiniousLines(Level3LineList);
+                if (currentLoopIndex == Level3LineList.Count)
+                {
+                    finished = true;
+                    currentLoopIndex = 0;
+                    Looping = false;
+                }
                 break;
             case LineType.GameComplete:
                 break;
             default:
                 textBoxText.text = line;
+                finished = true;
                 break;
         }
+
+        return finished;
     }
 
     private void ContiniousLines(List<string> lineList)
     {
-        for (int i = 0; i < lineList.Count - 1; i++)
-        {
-            //Stop so you can see text
-            textBoxText.text = lineList[i];
-        }
+        Looping = true;
+        textBoxText.text = lineList[currentLoopIndex];
+        currentLoopIndex++;
     }
 
     public void TextBoxDisappear()

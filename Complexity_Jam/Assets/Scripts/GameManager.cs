@@ -5,14 +5,17 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
-    [SerializeField] List<GameObject> tileList = new List<GameObject>();
     [SerializeField] Creature currentCreature;
+    [SerializeField] List<GameObject> creatureList = new List<GameObject>();
     [SerializeField] StatBar heartBar;
     [SerializeField] StatBar brainBar;
     [SerializeField] StatBar lungBar;
 
     [SerializeField] int creatureNumber = 1;
     [SerializeField] float[] bloodRequirements = { 10, 20, 30 };
+
+    Vector3 startPos = new Vector3(0, 0);
+    LineType currentLineType;
 
     private void Awake()
     {
@@ -32,8 +35,27 @@ public class GameManager : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            TextBox.Instance.TextBoxDisappear();
+            if (TextBox.Instance.Looping && !TextBox.Instance.TextBoxAppear(currentLineType, "")) { }
+            else
+            {
+                TextBox.Instance.TextBoxDisappear();
+            }
         }
+    }
+
+    private void Start()
+    {
+        currentLineType = LineType.Level1;
+        TextBox.Instance.PlayLine(LineType.Level1);
+        PlaceCreature();
+    }
+
+    void PlaceCreature()
+    {
+        if (currentCreature != null)
+            Destroy(currentCreature.gameObject);
+        GameObject tempObject = Instantiate(creatureList[creatureNumber], startPos, Quaternion.identity);
+        currentCreature = tempObject.GetComponent<Creature>();
     }
 
     public void PlaceOrgan(Organ organToAdd)
@@ -114,17 +136,31 @@ public class GameManager : MonoBehaviour
                 print("Is not self sustaining blood wise");
                 //Is not self sustaining blood wise
             }
-            else if (heartBar.CurrentValue < bloodRequirements[creatureNumber])
+            else if (heartBar.CurrentValue < currentCreature.BloodRequirement)
             {
                 print("Does not pass test for blood production for current creature");
                 //Does not pass test for blood production for current creature
             }
-            else if(brainAmount > 8)
+            else if (brainAmount > 8)
             {
                 print("Creature is sentient! KILL IT");
             }
             else
             {
+                creatureNumber++;
+                if (creatureNumber == 1)
+                {
+                    currentLineType = LineType.Level2;
+                }
+                else if (creatureNumber == 2)
+                {
+                    currentLineType = LineType.Level3;
+                }
+                else if (creatureNumber == 3)
+                {
+                    currentLineType = LineType.GameComplete;
+                }
+                TextBox.Instance.PlayLine(currentLineType);
                 print("Creature passes all tests!");
                 //Creature passes all tests!
             }

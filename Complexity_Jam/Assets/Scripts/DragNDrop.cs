@@ -33,7 +33,7 @@ public class DragNDrop : MonoBehaviour
             myOrgan.Remove();
             GameManager.Instance.RemoveOrgan(myOrgan);
         }
-        GameManager.Instance.DisplayTiles();
+        GameManager.Instance.DisplayTiles(true);
     }
 
     private void OnMouseUp()
