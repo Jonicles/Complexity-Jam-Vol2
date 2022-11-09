@@ -27,6 +27,15 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    private void Update()
+    {
+
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            TextBox.Instance.TextBoxDisappear();
+        }
+    }
+
     public void PlaceOrgan(Organ organToAdd)
     {
         currentCreature.AddOrgan(organToAdd);
@@ -78,6 +87,7 @@ public class GameManager : MonoBehaviour
         if (brainAmount <= 0 || heartAmount <= 0 || lungAmount <= 0 || mouthAmount <= 0)
         {
             print("Doesn't pass basic functionality test");
+            TextBox.Instance.PlayLine(LineType.BasicFunc);
             //Doesn't pass basic functionality test
         }
         else
