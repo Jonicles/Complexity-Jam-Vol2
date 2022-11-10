@@ -16,7 +16,7 @@ public class GameScene : MonoBehaviour
         StartTransition(0, 1, 0);
     }
 
-    private void StartTransition(int sceneValue, float startValue, float endValue)
+    public void StartTransition(int sceneValue, float startValue, float endValue)
     {
         if (transitionRoutine == null)
         {

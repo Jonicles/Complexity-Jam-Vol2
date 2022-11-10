@@ -12,6 +12,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] StatBar lungBar;
     [SerializeField] GameObject containers;
     [SerializeField] GameObject button;
+    [SerializeField] GameScene gameSceneScript;
 
     [SerializeField] int creatureNumber = 1;
     [SerializeField] float[] bloodRequirements = { 10, 20, 30 };
@@ -191,6 +192,6 @@ public class GameManager : MonoBehaviour
 
     public void GameEnd()
     {
-        print("DIE");
+        gameSceneScript.StartTransition(1, 0, 1);
     }
 }
