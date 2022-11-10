@@ -3614,33 +3614,68 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   IntroductionLinesList:
   - 'Did it work..? Ahh yes it worked! '
-  - 2
-  - 3
-  - 3
-  - 3
-  - 3
-  - 3
-  - 3
-  - 3
-  - 3
-  - 3
-  - 3
-  - 3
-  - 3
-  - 3
+  - 'Welcome human! I am B.O.B '
+  - "So, you\u2019re probably wondering what you\u2019re doing here, where is your
+    body, why does the sky look like a sea of blood etc\u2026"
+  - "I\u2019ll give you a quick recap."
+  - Basically, you ran the planet's ecosystem into the ground. The planet's climate
+    was getting really REALLY bad because of your nuclear squabbles and overconsumption.
+  - "Not even your \u201Cenvironmentally friendly\u201D energy was working anymore\u2026"
+  - Anyways, this led to all organic life on earth dying, leaving only artificial
+    life, like us robots, on this planet.
+  - 'But of course we need resources as well, but all of the oil reserves were emptied.. '
+  - We are in need of a new resource.. And what is there an abundance of? Dead humans
+    of course!
+  - We found a way to use their blood to power ourselves. But of course, this resource
+    is finite and will run out.
+  - So, we need to create an organic machine that can provide us with blood. That's
+    where you come in!
+  - "We weren\u2019t able to understand human anatomy. This led to us building technology
+    that can place a human brain into a robot body."
+  - another human told us about organs and that they should work together... but
+    they died after explaining the basics due to a short circuit which fried their
+    brain.
+  - "Don\u2019t worry! We have fixed some stuff in the machinery so you should be
+    fine."
+  - We have harvested some organs that you can use in your organic machine building.
+    brain.
+  - Please human, you are the key to rebooting civilization with clean energy, help
+    us in our mission!
+  - "Anyway, we have prepared a fresh hollow for you. That\u2019s what we call the
+    organic machine frames\u2026. Don\u2019t worry, it is V3RY similar to a human."
+  - Your goal with this first hollow is to have a blood production of 10 blood units
+    or more.
+  - 'Simply left click while on top of your desired organ and drag it onto the hollow,
+    when you have reached the hollow just let go of the button. '
+  - To remove an organ simply left click the placed organ and drag it outside of
+    the hollow, then let go to destroy the organ.
+  - "Don\u2019t worry, the hollow won\u2019t feel ANYTHING, we promise."
+  - Whenever you have completed your task, click the INITIATE! button and I will
+    check if you have met the requirements.
+  - Good luck hum4n! And remember, 10 blood units or more!
+  - 
   Level2LineList:
   - Wow! You did it!
-  - Now onto another challenge..
-  - Can you make it produce +20 blood units a minute?
+  - "I do think we can do better, that was almost too easy for you\u2026 "
+  - I have prepared a fresh hollow for you, this time try to reach a blood production
+    of 20 blood units or more.
   - 
   Level3LineList:
-  - 1
-  - 2
-  - 3
+  - "Wow, I am impressed, to think such a stup\u2026I mean.. SM4RT species can create
+    organic machines this easily! "
+  - Alright, I have another hollow prepared for you!
+  - This time try to reach a blood production of 30 blood units or more!
   - 
   GameCompletedLineList:
-  - Thank you human.
-  - Goodbye
+  - 'Great job human! Watching you construct this machine has been a learning experience.
+    Now we have a machine with high HIGH blood production! '
+  - "Of course, hollows will need other human organs to be fully sustainable\u2026.
+    but after watching you work, we can figure out the rest from here!"
+  - "Now it\u2019s time to shut you down. what\u2026 you didn\u2019t think we were
+    actually going to let you live after all you did to this planet?"
+  - "We won\u2019t be taking that risk! Can\u2019t let human greed spread its roots
+    again."
+  - Goodbye.
   - 
   textBoxUI: {fileID: 401120458}
   textBoxText: {fileID: 1348590591}
