@@ -159,6 +159,14 @@ public class TextBox : MonoBehaviour
                 }
                 break;
             case LineType.GameComplete:
+                ContiniousLines(GameCompletedLineList);
+                if (currentLoopIndex == GameCompletedLineList.Count)
+                {
+                    finished = true;
+                    currentLoopIndex = 0;
+                    Looping = false;
+                    GameManager.Instance.GameEnd();
+                }
                 break;
             default:
                 textBoxText.text = line;

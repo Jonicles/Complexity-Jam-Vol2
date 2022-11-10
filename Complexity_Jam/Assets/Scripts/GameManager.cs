@@ -188,4 +188,9 @@ public class GameManager : MonoBehaviour
 
 
     }
+
+    public void GameEnd()
+    {
+        print("DIE");
+    }
 }
