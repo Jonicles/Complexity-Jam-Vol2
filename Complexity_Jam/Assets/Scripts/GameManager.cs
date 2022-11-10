@@ -11,6 +11,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] StatBar brainBar;
     [SerializeField] StatBar lungBar;
     [SerializeField] GameObject containers;
+    [SerializeField] GameObject button;
 
     [SerializeField] int creatureNumber = 1;
     [SerializeField] float[] bloodRequirements = { 10, 20, 30 };
@@ -53,11 +54,13 @@ public class GameManager : MonoBehaviour
     public void ContainersAppear()
     {
         containers.SetActive(true);
+        button.SetActive(true);
     }
 
     public void ContainersDisappear()
     {
         containers.SetActive(false);
+        button.SetActive(false);
     }
 
     public void PlaceCreature()

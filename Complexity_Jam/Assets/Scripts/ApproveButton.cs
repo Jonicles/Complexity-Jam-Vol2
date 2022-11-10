@@ -8,6 +8,7 @@ public class ApproveButton : MonoBehaviour
     [SerializeField] Image myImage;
     [SerializeField] Sprite normalSprite;
     [SerializeField] Sprite hoverSprite;
+
     public void OnClick()
     {
         GameManager.Instance.WinLoseCheck();
