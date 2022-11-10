@@ -10,8 +10,13 @@ public enum LineType
     Level2,
     Level3,
     GameComplete,
-    BasicFunc,
+    NoBasicFun,
     NoMouth,
+    NoBrain,
+    NoLungs,
+    NoBlood,
+    NoOxygen,
+    NoRequirement
 }
 
 public class TextBox : MonoBehaviour

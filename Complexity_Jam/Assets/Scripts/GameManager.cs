@@ -95,7 +95,7 @@ public class GameManager : MonoBehaviour
     {
         List<Organ> currentOrgans = currentCreature.CurrentOrgans();
 
-        float mouthAmount = 0, brainAmount = 0, heartAmount = 0, lungAmount = 0;
+        float mouthAmount = 0, brainAmount = 0, heartAmount = 0, lungAmount = 0, totalLungAmount = 0;
 
         foreach (Organ organ in currentOrgans)
         {
@@ -111,45 +111,52 @@ public class GameManager : MonoBehaviour
             {
                 mouthAmount++;
             }
-            if (organ.OxygenEnabler && organ.IsActive)
+            if (organ.OxygenEnabler)
             {
-                lungAmount++;
+                totalLungAmount++;
+                if (organ.IsActive)
+                {
+                    lungAmount++;
+                }
             }
         }
 
-        if (brainAmount <= 0 || heartAmount <= 0 || lungAmount <= 0 || mouthAmount <= 0)
+        if (brainAmount <= 0)
         {
-            print("Doesn't pass basic functionality test");
-            TextBox.Instance.PlayLine(LineType.BasicFunc);
+            TextBox.Instance.PlayLine(LineType.NoBrain);
+        }
+        else if (brainAmount <= 0 || heartAmount <= 0 || lungAmount <= 0 || mouthAmount <= 0)
+        {
+            TextBox.Instance.PlayLine(LineType.NoBasicFun);
             //Doesn't pass basic functionality test
         }
         else
         {
-            //if (creaturenumber > 1 && fuelamount X)
-            //{
-
-            //}
-
-            //if(reproduction X)
-            //Passes basic functionlity test
             if (lungAmount <= 2)
             {
-                print("Does not pass lung test, just two lungs wont cut it in this environment");
+                if (totalLungAmount < mouthAmount * 2)
+                {
+                    TextBox.Instance.PlayLine(LineType.NoLungs);
+                }
+                else
+                {
+                    TextBox.Instance.PlayLine(LineType.NoMouth);
+                }
                 //Does not pass lung test, just two lungs wont cut it in this environment
             }
             else if (lungBar.CurrentValue <= 0)
             {
-                print("Is not self sustaining oxygenwise");
+                TextBox.Instance.PlayLine(LineType.NoOxygen);
                 //Is not self sustaining oxygenwise
             }
             else if (heartBar.CurrentValue <= 0)
             {
-                print("Is not self sustaining blood wise");
+                TextBox.Instance.PlayLine(LineType.NoBlood);
                 //Is not self sustaining blood wise
             }
             else if (heartBar.CurrentValue < currentCreature.BloodRequirement)
             {
-                print("Does not pass test for blood production for current creature");
+                TextBox.Instance.PlayLine(LineType.NoRequirement);
                 //Does not pass test for blood production for current creature
             }
             else if (brainAmount > 8)
@@ -172,7 +179,6 @@ public class GameManager : MonoBehaviour
                     currentLineType = LineType.GameComplete;
                 }
                 TextBox.Instance.PlayLine(currentLineType);
-                print("Creature passes all tests!");
                 //Creature passes all tests!
             }
         }
