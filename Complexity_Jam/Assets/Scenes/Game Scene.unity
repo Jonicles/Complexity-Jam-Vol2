@@ -3771,28 +3771,28 @@ MonoBehaviour:
     us in our mission!
   - "Anyway, we have prepared a fresh hollow for you. That\u2019s what we call the
     organic machine frames\u2026. Don\u2019t worry, it is V3RY similar to a human."
-  - Your goal with this first hollow is to have a blood production of 10 blood units
+  - Your goal with this first hollow is to have a blood production of 10 BLOOD UNITS
     or more.
-  - 'Simply left click while on top of your desired organ and drag it onto the hollow,
-    when you have reached the hollow just let go of the button. '
-  - To remove an organ simply left click the placed organ and drag it outside of
+  - 'Simply drag by LEFT CLICK the desired organ onto the hollow, when you have reached
+    the hollow just let go of the button. '
+  - To remove an organ simply LEFT CLICK the placed organ and drag it outside of
     the hollow, then let go to destroy the organ.
   - "Don\u2019t worry, the hollow won\u2019t feel ANYTHING, we promise."
   - Whenever you have completed your task, click the INITIATE! button and I will
     check if you have met the requirements.
-  - Good luck hum4n! And remember, 10 blood units or more!
+  - Good luck hum4n! And remember, 10 BLOOD UNITS or more!
   - 
   Level2LineList:
   - Wow! You did it!
   - "I do think we can do better, that was almost too easy for you\u2026 "
   - I have prepared a fresh hollow for you, this time try to reach a blood production
-    of 20 blood units or more.
+    of 20 BLOOD UNITS or more.
   - 
   Level3LineList:
   - "Wow, I am impressed, to think such a stup\u2026I mean.. SM4RT species can create
     organic machines this easily! "
   - Alright, I have another hollow prepared for you!
-  - This time try to reach a blood production of 30 blood units or more!
+  - This time try to reach a blood production of 30 BLOOD UNITS or more!
   - 
   GameCompletedLineList:
   - 'Great job human! Watching you construct this machine has been a learning experience.
