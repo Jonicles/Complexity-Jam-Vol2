@@ -25,8 +25,11 @@ public class Container : MonoBehaviour
 
     public void OrganSetup()
     {
-        containedOrgan = null;
-        containedOrgan = Instantiate(organPrefab, transform.position, Quaternion.identity);
-        containedOrgan.GetComponent<DragNDrop>().SetContainer(this);
+        if (containedOrgan == null || containedOrgan.transform.position != transform.position)
+        {
+            containedOrgan = null;
+            containedOrgan = Instantiate(organPrefab, transform.position, Quaternion.identity, transform);
+            containedOrgan.GetComponent<DragNDrop>().SetContainer(this);
+        }
     }
 }

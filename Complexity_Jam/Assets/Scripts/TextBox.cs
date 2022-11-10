@@ -118,6 +118,7 @@ public class TextBox : MonoBehaviour
 
     public bool TextBoxAppear(LineType lineType, string line)
     {
+        GameManager.Instance.ContainersDisappear();
         bool finished = false;
         textBoxUI.SetActive(true);
         switch (lineType)
@@ -129,6 +130,7 @@ public class TextBox : MonoBehaviour
                     finished = true;
                     currentLoopIndex = 0;
                     Looping = false;
+                    GameManager.Instance.PlaceCreature();
                 }
                 break;
             case LineType.Level2:
@@ -138,6 +140,7 @@ public class TextBox : MonoBehaviour
                     finished = true;
                     currentLoopIndex = 0;
                     Looping = false;
+                    GameManager.Instance.PlaceCreature();
                 }
                 break;
             case LineType.Level3:
@@ -147,6 +150,7 @@ public class TextBox : MonoBehaviour
                     finished = true;
                     currentLoopIndex = 0;
                     Looping = false;
+                    GameManager.Instance.PlaceCreature();
                 }
                 break;
             case LineType.GameComplete:
@@ -169,6 +173,7 @@ public class TextBox : MonoBehaviour
 
     public void TextBoxDisappear()
     {
+        GameManager.Instance.ContainersAppear();
         textBoxUI.SetActive(false);
     }
 }

@@ -10,11 +10,12 @@ public class GameManager : MonoBehaviour
     [SerializeField] StatBar heartBar;
     [SerializeField] StatBar brainBar;
     [SerializeField] StatBar lungBar;
+    [SerializeField] GameObject containers;
 
     [SerializeField] int creatureNumber = 1;
     [SerializeField] float[] bloodRequirements = { 10, 20, 30 };
 
-    Vector3 startPos = new Vector3(0, 0);
+    Vector3 startPos = new Vector3(0, -0.75f);
     LineType currentLineType;
 
     private void Awake()
@@ -47,15 +48,25 @@ public class GameManager : MonoBehaviour
     {
         currentLineType = LineType.Level1;
         TextBox.Instance.PlayLine(LineType.Level1);
-        PlaceCreature();
     }
 
-    void PlaceCreature()
+    public void ContainersAppear()
+    {
+        containers.SetActive(true);
+    }
+
+    public void ContainersDisappear()
+    {
+        containers.SetActive(false);
+    }
+
+    public void PlaceCreature()
     {
         if (currentCreature != null)
             Destroy(currentCreature.gameObject);
         GameObject tempObject = Instantiate(creatureList[creatureNumber], startPos, Quaternion.identity);
         currentCreature = tempObject.GetComponent<Creature>();
+        UpdateStatBars(0, 0, 0, 0);
     }
 
     public void PlaceOrgan(Organ organToAdd)
