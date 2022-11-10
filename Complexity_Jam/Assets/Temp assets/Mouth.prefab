@@ -49,6 +49,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   myOrgan: {fileID: 3264539707576129051}
   currentTile: {fileID: 0}
+  myContainer: {fileID: 0}
 --- !u!61 &3264539707576129044
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -160,7 +161,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: 6d1a4c809976e0c49a03a03ddca2610d, type: 3}
+  m_Sprite: {fileID: 21300000, guid: e35825cb2ac37f047bc9e3f0a2c07041, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
